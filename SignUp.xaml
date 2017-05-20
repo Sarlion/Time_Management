@@ -22,7 +22,7 @@
                 <Label>Name</Label>
                 <TextBox Name="TextBox_Name" Margin="5 1">Name</TextBox>
                 <Label>NickName</Label>
-                <TextBox Name="TextBox_NickName" Margin="5 1">NickName</TextBox>
+                <TextBox Name="TextBox_NickName" Margin="5 1">Login</TextBox>
                 <Label>Age</Label>
                 <ComboBox Name="ComboBox_Age" Margin="5 1">
                     <TextBlock>17</TextBlock>

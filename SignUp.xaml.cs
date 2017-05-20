@@ -31,7 +31,7 @@ namespace Wpf_project
         
         private void SignUp1_BT_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(Pages.MainPage);
+            
 
             if (PasswordBox_Pas.Password != PasswordBox_RePas.Password)
                 MessageBox.Show("Password != RePassword"); 
@@ -43,8 +43,12 @@ namespace Wpf_project
 
                 MP1.TextBox_Login.Text = TextBox_Name.Text;
                 MP1.PasswordBox_Password.Password = PasswordBox_Pas.Password;
-                
+
+
+                NavigationService.Navigate(Pages.MainPage);
+
             }
+            
         }
     }
 }

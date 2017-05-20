@@ -27,7 +27,10 @@ namespace Wpf_project
 
         private void SignIn_Bt_Click(object sender, RoutedEventArgs e)
         {
+            /*if (TextBox_Login.Text == )*/
+
             NavigationService.Navigate(Pages.Header);
+
         }
 
         private void SignUp_Bt_Click(object sender, RoutedEventArgs e)
