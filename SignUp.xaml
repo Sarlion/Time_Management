@@ -24,7 +24,7 @@
                 <Label>NickName</Label>
                 <TextBox Name="TextBox_NickName" Margin="5 1">Login</TextBox>
                 <Label>Age</Label>
-                <ComboBox Name="ComboBox_Age" Margin="5 1">
+                <ComboBox Name="ComboBox_Age" Margin="5 1" IsEditable="True">
                     <TextBlock>17</TextBlock>
                     <TextBlock>18</TextBlock>
                     <TextBlock>19</TextBlock>

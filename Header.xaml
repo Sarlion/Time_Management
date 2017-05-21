@@ -25,13 +25,13 @@
 
                     <Button Name="Task_add_BT" Height="20" Margin="2 0 10 0"  Grid.Column="1" Grid.Row="0" Click="Task_add_BT_Click">Add Task</Button>
 
-                    
+
                     <ListBox Grid.Row="1" Grid.ColumnSpan="2" Name="ListBox_Task" Margin="10 32">
                         <StackPanel Margin="5" Orientation="Horizontal">
                         </StackPanel>
                     </ListBox>
                     <Button Name="Done_BT"  Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Height="20" Margin="40 5" Click="Done_BT_Click">Done</Button>
-                    <Button Name="Choose_BT" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center"  Width="60" Height="20" Margin="40 5" Click="Choose_BT_Click">  Choose</Button> 
+                    <Button Name="Choose_BT" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Center"  Width="60" Height="20" Margin="40 5" Click="Choose_BT_Click">Choose</Button>
                     <Button Name="Delete_BT" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Width="60" Height="20" Margin="40 5" Click="Delete_BT_Click" >Delete</Button>
                 </Grid>
             </TabItem.Content>
@@ -43,8 +43,8 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="2*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.5*"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -52,13 +52,22 @@
                         <ColumnDefinition Width="0.4*"/>
                         <ColumnDefinition Width="0.4*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="lbl_min" Grid.Row="2" Grid.Column="1" Margin="0 13 2 13"></Label>
-                    <Label Name="lbl_sec" Grid.Row="2" Grid.Column="2" Margin="2 13 2 13"></Label>
-                    <Label x:Name="lbl_msec" Grid.Row="2" Grid.Column="3" Margin="2 13 0 13"></Label>
+                    <Label  Grid.Row="2" Grid.Column="1" Margin="2 0 2 15" VerticalAlignment="Top" HorizontalAlignment="Center" >Min</Label>
+                    <Label  Grid.Row="2" Grid.Column="2" Margin="2 0 2 15" VerticalAlignment="Top" HorizontalAlignment="Center">Sec</Label>
+                    <Label  Grid.Row="2" Grid.Column="3" Margin="2 0 2 15" VerticalAlignment="Top" HorizontalAlignment="Center">Msec</Label>
+
+                    <Label x:Name="lbl_min" Grid.Row="2" Grid.Column="1" Margin="3 15 3 0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Hidden">0</Label>
+                    <Label Name="lbl_sec" Grid.Row="2" Grid.Column="2" Margin="3 15 3 0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Hidden">0</Label>
+                    <Label x:Name="lbl_msec" Grid.Row="2" Grid.Column="3" Margin="3 15 3 0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Visibility="Hidden">0</Label>
+
+                    <ComboBox Name="ComboBox_min" Grid.Row="2" Grid.Column="1" Margin="3 15 3 0"  VerticalAlignment="Bottom"  />
+                    <ComboBox Name="ComboBox_sec" Grid.Row="2" Grid.Column="2" Margin="3 15 3 0"  VerticalAlignment="Bottom"  />
+                    <ComboBox Name="ComboBox_msec" Grid.Row="2" Grid.Column="3" Margin="3 15 3 0"  VerticalAlignment="Bottom"  />
+
                     <TextBlock x:Name="TextBlock_Task" Margin="5 30" Grid.ColumnSpan="2">Todo thing #1</TextBlock>
                     <Button x:Name="ON_BT" Grid.Row="3" Grid.Column="1" Margin="0 35" Click="ON_BT_Click">ON</Button>
                     <Button x:Name="Stop_BT" Grid.Row="3" Grid.Column="3" Margin="0 35" Click="Stop_BT_Click">STOP</Button>
-                    <ProgressBar Grid.Row="1" Grid.Column="0" Margin="5 12.5 0 12.5" Minimum="0" Maximum="100" Value="0"></ProgressBar>
+                    <ProgressBar Name="Progress_Task" Grid.Row="1" Grid.Column="0" Margin="5 15 0 15" Minimum="0" Maximum="100" Value="0"></ProgressBar>
 
                 </Grid>
             </TabItem.Content>

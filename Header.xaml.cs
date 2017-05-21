@@ -24,6 +24,7 @@ namespace Wpf_project
     public partial class Header : Page
     {
 
+        // доделать с ползунком времени и окончанием времени 
 
         public Header()
         {
@@ -31,9 +32,25 @@ namespace Wpf_project
         }
 
 
+        int min, sec, msec;
+        int min1=0, sec1=0, msec1=0, all=0;
+
         private void ON_BT_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
+            ComboBox_min.Visibility = Visibility.Hidden;
+            ComboBox_sec.Visibility = Visibility.Hidden;
+            ComboBox_msec.Visibility = Visibility.Hidden;
+
+            lbl_min.Visibility = Visibility.Visible;
+            lbl_sec.Visibility = Visibility.Visible;
+            lbl_msec.Visibility = Visibility.Visible;
+            
+
+            min = int.Parse(ComboBox_min.SelectedItem.ToString());
+            sec = int.Parse(ComboBox_sec.SelectedItem.ToString());
+            msec = int.Parse(ComboBox_msec.SelectedItem.ToString());
+            
         }
 
         private void Stop_BT_Click(object sender, RoutedEventArgs e)
@@ -73,6 +90,8 @@ namespace Wpf_project
 
         }
 
+     
+
         private void Choose_BT_Click(object sender, RoutedEventArgs e)
         {
             if (ListBox_Task.SelectedIndex >= 0)
@@ -86,50 +105,92 @@ namespace Wpf_project
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
 
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromMilliseconds(1);
             timer.Tick += Timer_Tick;
 
+            for (int i = 0; i <= 60; i++)
+            {
+                ComboBox_min.Items.Add(i);
+            }
 
+            for (int i = 0; i <= 60; i++)
+            {
+
+                ComboBox_sec.Items.Add(i);
+            }
+
+            for (int i = 0; i <= 60; i++)
+            {
+
+                ComboBox_msec.Items.Add(i);
+            }
+
+            ComboBox_msec.SelectedIndex = 0;
+            ComboBox_sec.SelectedIndex = 0;
+            ComboBox_min.SelectedIndex = 20;
         }
 
-        int min = 0, sec = 0, msec = 0;
+
+        int value_now;
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-        
+            all = min * 60 + sec; // чему равняется 100
+            int value_five = all * 5 / 100; // чему равняется 1/20 (5%)
+            
 
-            msec = msec + 1;
+            msec1 = msec1 + 1;
 
-            if (msec == 60)
+            if(msec1 == 60)
             {
-
-                sec = sec + 1;
-
-                if (sec == 60)
+                sec1 = sec1 + 1;
+                
+                if(sec1 == 60)
                 {
+                    min1 = min1 + 1;
 
-                    min = min + 1;
+                    if (min1 == min)
+                    {
+                        timer.Stop();
+                        MessageBox.Show("Your time is going up");
 
-                    lbl_min.Content = min.ToString();
+                        lbl_min.Content = 0;
+                        lbl_sec.Content = 0;
+                        lbl_msec.Content = 0;
 
-                    sec = 0;
+                        ComboBox_min.Visibility = Visibility.Visible;
+                        ComboBox_sec.Visibility = Visibility.Visible;
+                        ComboBox_msec.Visibility = Visibility.Visible;
+
+                        lbl_min.Visibility = Visibility.Hidden;
+                        lbl_sec.Visibility = Visibility.Hidden;
+                        lbl_msec.Visibility = Visibility.Hidden;
+
+
+                    }
+                    lbl_min.Content = min1.ToString();
+                    sec1 = 0;
+
                 }
-                else
-                {
-                    lbl_sec.Content = sec.ToString();
-                }
 
-                msec = 0;
-
+                lbl_sec.Content = sec1.ToString();
+                msec1 = 0;
             }
+            lbl_msec.Content = msec1.ToString();
 
-            else
+
+            value_now = min1 * 60 + sec1;
+
+            for (int i = 0; i <= 20; i++)
             {
-                lbl_min.Content = min.ToString();
+                if(value_now == value_five*i)
+                {
+                    Progress_Task.Value = i*5;
+                }
             }
-
-            lbl_msec.Content = msec.ToString();
+            
 
         }
+        
     }
 }
