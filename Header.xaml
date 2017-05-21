@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Wpf_project"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="300" Loaded="Page_Loaded"
       Title="Header">
 
     <TabControl x:Name="project">
@@ -52,13 +52,13 @@
                         <ColumnDefinition Width="0.4*"/>
                         <ColumnDefinition Width="0.4*"/>
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="lbl_hour" Grid.Row="2" Grid.Column="1" Margin="0 13 2 13"></Label>
-                    <Label Name="lbl_min" Grid.Row="2" Grid.Column="2" Margin="2 13 2 13"></Label>
-                    <Label x:Name="lbl_sec" Grid.Row="2" Grid.Column="3" Margin="2 13 0 13"></Label>
+                    <Label x:Name="lbl_min" Grid.Row="2" Grid.Column="1" Margin="0 13 2 13"></Label>
+                    <Label Name="lbl_sec" Grid.Row="2" Grid.Column="2" Margin="2 13 2 13"></Label>
+                    <Label x:Name="lbl_msec" Grid.Row="2" Grid.Column="3" Margin="2 13 0 13"></Label>
                     <TextBlock x:Name="TextBlock_Task" Margin="5 30" Grid.ColumnSpan="2">Todo thing #1</TextBlock>
                     <Button x:Name="ON_BT" Grid.Row="3" Grid.Column="1" Margin="0 35" Click="ON_BT_Click">ON</Button>
                     <Button x:Name="Stop_BT" Grid.Row="3" Grid.Column="3" Margin="0 35" Click="Stop_BT_Click">STOP</Button>
-                    <ProgressBar Grid.Row="1" Grid.Column="0" Margin="5 12.5 0 12.5" Minimum="0" Maximum="100" ></ProgressBar>
+                    <ProgressBar Grid.Row="1" Grid.Column="0" Margin="5 12.5 0 12.5" Minimum="0" Maximum="100" Value="0"></ProgressBar>
 
                 </Grid>
             </TabItem.Content>

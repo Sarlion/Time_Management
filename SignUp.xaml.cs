@@ -27,8 +27,9 @@ namespace Wpf_project
 
         private static List<User> ListUser = new List<User>();
 
-        MainPage MP1 = new MainPage();
-        
+       
+        Wpf_project.MainPage MP1 = new Wpf_project.MainPage();
+
         private void SignUp1_BT_Click(object sender, RoutedEventArgs e)
         {
             

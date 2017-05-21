@@ -69,9 +69,9 @@
                 </ComboBox>
                 <Label>Password</Label>
                 <PasswordBox Name="PasswordBox_Pas" Margin="5 1"></PasswordBox>
-                <Label>RePassword</Label>
                 <PasswordBox Name="PasswordBox_RePas" Margin="5 1"></PasswordBox>
                 <Button x:Name="SignUp1_BT" Margin="5 15" Click="SignUp1_BT_Click" >Sign up</Button>
+                <Label Content="RePassword"/>
             </StackPanel>
         </ScrollViewer>
     </Grid>
