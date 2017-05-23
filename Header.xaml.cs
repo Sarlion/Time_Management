@@ -33,7 +33,7 @@ namespace Wpf_project
 
 
         int min, sec, msec;
-        int min1=0, sec1=0, msec1=0, all=0;
+        int min1 = 0, sec1 = 0, msec1 = 0, all = 0;
 
         int value_now;
         SoundPlayer sp = new SoundPlayer();
@@ -49,7 +49,7 @@ namespace Wpf_project
             lbl_min.Visibility = Visibility.Visible;
             lbl_sec.Visibility = Visibility.Visible;
             lbl_msec.Visibility = Visibility.Visible;
-            
+
 
             min = int.Parse(ComboBox_min.SelectedItem.ToString());
             sec = int.Parse(ComboBox_sec.SelectedItem.ToString());
@@ -57,7 +57,7 @@ namespace Wpf_project
 
             OFF_BT.Visibility = Visibility.Visible;
             ON_BT.Visibility = Visibility.Hidden;
-            
+
         }
 
         private void Stop_BT_Click(object sender, RoutedEventArgs e)
@@ -155,29 +155,29 @@ namespace Wpf_project
             ComboBox_sec.SelectedIndex = 0;
             ComboBox_min.SelectedIndex = 20;
 
-            sp.SoundLocation = "Sounds/time_finish.wav"; 
-            
+            sp.SoundLocation = "../../Sounds/time_finish.wav";
+
 
         }
 
-        
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             all = min * 60 + sec; // чему равняется 100
             int value_five = all * 5 / 100; // чему равняется 1/20 (5%)
-            
+
 
             msec1 = msec1 + 1;
 
-            if(msec1 == 60)
+            if (msec1 == 60)
             {
                 sec1 = sec1 + 1;
-                
-                if(sec1 == 60)
+
+                if (sec1 == 60)
                 {
                     min1 = min1 + 1;
 
-                    
+
                     lbl_min.Content = min1.ToString();
                     sec1 = 0;
 
@@ -193,21 +193,24 @@ namespace Wpf_project
 
             for (int i = 0; i <= 20; i++)
             {
-                if(value_now == value_five*i)
+                if (value_now == value_five * i)
                 {
-                    Progress_Task.Value = i*5;
+                    Progress_Task.Value = i * 5;
                 }
             }
 
             if (min1 == min && sec1 == sec)
             {
                 timer.Stop();
-                MessageBox.Show("Your time is going up");
+
 
                 sp.Load();
                 sp.PlayLooping();
-                Thread.Sleep(500);
-                sp.Stop();
+                MessageBox.Show("Your time is going up");
+                {
+                    Thread.Sleep(8500);
+                    sp.Stop();
+                }
 
 
                 lbl_min.Content = 0;
@@ -226,6 +229,6 @@ namespace Wpf_project
 
 
         }
-        
+
     }
 }

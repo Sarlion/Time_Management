@@ -27,9 +27,16 @@ namespace Wpf_project
 
         private void SignIn_Bt_Click(object sender, RoutedEventArgs e)
         {
-            /* if (TextBox_Login.Text == ) */
+            /*if (User.ListUser[0].ToString() == TextBox_Login.Text && User.ListUser[1].ToString() == PasswordBox_Password.ToString())*/
+            {
+                NavigationService.Navigate(Pages.Header);
+            }
 
-            NavigationService.Navigate(Pages.Header);
+            /*
+            else
+            {
+                MessageBox.Show("Неправильный логин или пароль");
+            } */
 
         }
 
@@ -39,10 +46,10 @@ namespace Wpf_project
         private void SignUp_Bt_Click(object sender, RoutedEventArgs e)
         {
 
-            if (User.ListUser[0].ToString() == TextBox_Login.Text)
-            {
-                NavigationService.Navigate(Pages.SignUp);
-            }
+
+
+            NavigationService.Navigate(Pages.SignUp);
+
 
 
         }

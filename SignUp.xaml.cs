@@ -40,12 +40,12 @@ namespace Wpf_project
             else
             {
                 User1 = new User(TextBox_Name.Text, ComboBox_Age.Text, TextBox_NickName.Text, TextBox_Uni.Text, ComboBox_Graduate.Text, PasswordBox_Pas.Password);
-                
+
                 // User1.ListUser.Add(User1); я не знаю как сделать так, чтобы: при регистрации 
                 //создавался отедельный лист с информацией о человеке и потом просто передавалась эта инфомармация на другую страницу.
-                 
+
                 User.ListUser.Add(User1);
-                  
+
                 NavigationService.Navigate(Pages.MainPage);
 
             }
