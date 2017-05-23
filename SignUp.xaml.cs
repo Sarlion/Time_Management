@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.IO;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -25,10 +26,9 @@ namespace Wpf_project
             InitializeComponent();
         }
 
-        private static List<User> ListUser = new List<User>();
+        User User1;
 
-       
-        Wpf_project.MainPage MP1 = new Wpf_project.MainPage();
+
 
         private void SignUp1_BT_Click(object sender, RoutedEventArgs e)
         {
@@ -39,16 +39,17 @@ namespace Wpf_project
 
             else
             {
-                User User1 = new User(TextBox_Name.Text, ComboBox_Age.Text, TextBox_NickName.Text, TextBox_Uni.Text, ComboBox_Graduate.Text, PasswordBox_Pas.Password);
-                ListUser.Add(User1);
-
-                MP1.TextBox_Login.Text = TextBox_Name.Text;
-                MP1.PasswordBox_Password.Password = PasswordBox_Pas.Password;
-
-
+                User1 = new User(TextBox_Name.Text, ComboBox_Age.Text, TextBox_NickName.Text, TextBox_Uni.Text, ComboBox_Graduate.Text, PasswordBox_Pas.Password);
+                
+                // User1.ListUser.Add(User1); я не знаю как сделать так, чтобы: при регистрации 
+                //создавался отедельный лист с информацией о человеке и потом просто передавалась эта инфомармация на другую страницу.
+                 
+                User.ListUser.Add(User1);
+                  
                 NavigationService.Navigate(Pages.MainPage);
 
             }
+            
             
         }
     }

@@ -65,8 +65,10 @@
                     <ComboBox Name="ComboBox_msec" Grid.Row="2" Grid.Column="3" Margin="3 15 3 0"  VerticalAlignment="Bottom"  />
 
                     <TextBlock x:Name="TextBlock_Task" Margin="5 30" Grid.ColumnSpan="2">Todo thing #1</TextBlock>
-                    <Button x:Name="ON_BT" Grid.Row="3" Grid.Column="1" Margin="0 35" Click="ON_BT_Click">ON</Button>
-                    <Button x:Name="Stop_BT" Grid.Row="3" Grid.Column="3" Margin="0 35" Click="Stop_BT_Click">STOP</Button>
+                    <Button x:Name="ON_BT" Grid.Row="3" Grid.Column="1" Margin="3 25" Click="ON_BT_Click">ON</Button>
+
+                    <Button x:Name="OFF_BT" Grid.Row="3" Grid.Column="1" Margin="3 25" Click="OFF_BT_Click" Visibility="Hidden">OFF</Button>
+                    <Button x:Name="Stop_BT" Grid.Row="3" Grid.Column="3" Margin="3 25" Click="Stop_BT_Click">STOP</Button>
                     <ProgressBar Name="Progress_Task" Grid.Row="1" Grid.Column="0" Margin="5 15 0 15" Minimum="0" Maximum="100" Value="0"></ProgressBar>
 
                 </Grid>

@@ -20,11 +20,12 @@
             </ScrollViewer.RenderTransform>
             <StackPanel Background="White" Height="398">
                 <Label>Name</Label>
-                <TextBox Name="TextBox_Name" Margin="5 1">Name</TextBox>
-                <Label>NickName</Label>
-                <TextBox Name="TextBox_NickName" Margin="5 1">Login</TextBox>
+                <TextBox Name="TextBox_Name" Margin="5 1" MaxLength="20">Name</TextBox>
+                <Label>NickName (Login)</Label>
+                <TextBox Name="TextBox_NickName" Margin="5 1" MaxLength="20">Login</TextBox>
                 <Label>Age</Label>
-                <ComboBox Name="ComboBox_Age" Margin="5 1" IsEditable="True">
+                <ComboBox Name="ComboBox_Age" Margin="5 1"  >
+                    <!--IsEditable="False"-->
                     <TextBlock>17</TextBlock>
                     <TextBlock>18</TextBlock>
                     <TextBlock>19</TextBlock>

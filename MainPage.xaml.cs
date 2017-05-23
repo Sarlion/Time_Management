@@ -33,9 +33,18 @@ namespace Wpf_project
 
         }
 
+        User User2;
+
+
         private void SignUp_Bt_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(Pages.SignUp);
+
+            if (User.ListUser[0].ToString() == TextBox_Login.Text)
+            {
+                NavigationService.Navigate(Pages.SignUp);
+            }
+
+
         }
 
         private void PasswordBox_Password_MouseEnter(object sender, MouseEventArgs e)
@@ -76,6 +85,10 @@ namespace Wpf_project
         private void SignUp_Bt_MouseLeave(object sender, MouseEventArgs e)
         {
             SignUp_Bt.FontSize = 20;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
-
+using System.Media;
 
 namespace Wpf_project
 {
@@ -35,6 +35,10 @@ namespace Wpf_project
         int min, sec, msec;
         int min1=0, sec1=0, msec1=0, all=0;
 
+        int value_now;
+        SoundPlayer sp = new SoundPlayer();
+
+
         private void ON_BT_Click(object sender, RoutedEventArgs e)
         {
             timer.Start();
@@ -50,6 +54,9 @@ namespace Wpf_project
             min = int.Parse(ComboBox_min.SelectedItem.ToString());
             sec = int.Parse(ComboBox_sec.SelectedItem.ToString());
             msec = int.Parse(ComboBox_msec.SelectedItem.ToString());
+
+            OFF_BT.Visibility = Visibility.Visible;
+            ON_BT.Visibility = Visibility.Hidden;
             
         }
 
@@ -66,7 +73,8 @@ namespace Wpf_project
 
             if (TextBox_Task.Text != null)
             {
-                Todo_list.Todo_list1.Add(TextBox_Task.Text);
+                // Todo_list.Todo_list1.Add(TextBox_Task.Text); (пока не знаю для чего это нужно...) 
+
                 ListBox_Task.Items.Add(TextBox_Task.Text);
 
             }
@@ -90,7 +98,25 @@ namespace Wpf_project
 
         }
 
-     
+        private void OFF_BT_Click(object sender, RoutedEventArgs e)
+        {
+            ON_BT.Visibility = Visibility.Visible;
+            OFF_BT.Visibility = Visibility.Hidden;
+
+            ComboBox_min.Visibility = Visibility.Visible;
+            ComboBox_sec.Visibility = Visibility.Visible;
+            ComboBox_msec.Visibility = Visibility.Visible;
+
+            lbl_min.Visibility = Visibility.Hidden;
+            lbl_sec.Visibility = Visibility.Hidden;
+            lbl_msec.Visibility = Visibility.Hidden;
+
+            timer.Stop();
+            lbl_min.Content = "0";
+            lbl_sec.Content = "0";
+            lbl_msec.Content = "0";
+
+        }
 
         private void Choose_BT_Click(object sender, RoutedEventArgs e)
         {
@@ -128,11 +154,13 @@ namespace Wpf_project
             ComboBox_msec.SelectedIndex = 0;
             ComboBox_sec.SelectedIndex = 0;
             ComboBox_min.SelectedIndex = 20;
+
+            sp.SoundLocation = "Sounds/time_finish.wav"; 
+            
+
         }
 
-
-        int value_now;
-
+        
         private void Timer_Tick(object sender, EventArgs e)
         {
             all = min * 60 + sec; // чему равняется 100
@@ -149,25 +177,7 @@ namespace Wpf_project
                 {
                     min1 = min1 + 1;
 
-                    if (min1 == min)
-                    {
-                        timer.Stop();
-                        MessageBox.Show("Your time is going up");
-
-                        lbl_min.Content = 0;
-                        lbl_sec.Content = 0;
-                        lbl_msec.Content = 0;
-
-                        ComboBox_min.Visibility = Visibility.Visible;
-                        ComboBox_sec.Visibility = Visibility.Visible;
-                        ComboBox_msec.Visibility = Visibility.Visible;
-
-                        lbl_min.Visibility = Visibility.Hidden;
-                        lbl_sec.Visibility = Visibility.Hidden;
-                        lbl_msec.Visibility = Visibility.Hidden;
-
-
-                    }
+                    
                     lbl_min.Content = min1.ToString();
                     sec1 = 0;
 
@@ -188,7 +198,32 @@ namespace Wpf_project
                     Progress_Task.Value = i*5;
                 }
             }
-            
+
+            if (min1 == min && sec1 == sec)
+            {
+                timer.Stop();
+                MessageBox.Show("Your time is going up");
+
+                sp.Load();
+                sp.PlayLooping();
+                Thread.Sleep(500);
+                sp.Stop();
+
+
+                lbl_min.Content = 0;
+                lbl_sec.Content = 0;
+                lbl_msec.Content = 0;
+
+                ComboBox_min.Visibility = Visibility.Visible;
+                ComboBox_sec.Visibility = Visibility.Visible;
+                ComboBox_msec.Visibility = Visibility.Visible;
+
+                lbl_min.Visibility = Visibility.Hidden;
+                lbl_sec.Visibility = Visibility.Hidden;
+                lbl_msec.Visibility = Visibility.Hidden;
+
+            }
+
 
         }
         

@@ -9,6 +9,8 @@ namespace Wpf_project
     class User
     {
 
+        public static List<User> ListUser = new List<User>();
+        
 
         private string Name;
         private string Age;
@@ -28,6 +30,7 @@ namespace Wpf_project
             this.Password = pas;
         }
 
+        
      
     }
 }
